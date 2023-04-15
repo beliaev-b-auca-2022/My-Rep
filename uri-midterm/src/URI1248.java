@@ -6,8 +6,7 @@ public class URI1248 {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
-        in.nextLine(); // consume the leftover newline character
-
+        in.nextLine();
         for (int t = 0; t < n; t++) {
             String diet = in.nextLine();
             String breakfast = in.nextLine();
@@ -27,8 +26,6 @@ public class URI1248 {
                     consumedMap.put(c, consumedMap.getOrDefault(c, 0) + 1);
                 }
             }
-
-            // check if any character in the diet is not consumed or over-consumed
             boolean cheated = false;
             StringBuilder dinner = new StringBuilder();
             for (Map.Entry<Character, Integer> entry : dietMap.entrySet()) {
@@ -43,14 +40,11 @@ public class URI1248 {
                     dinner.append(c);
                 }
             }
-
-            // print the result
             if (cheated) {
                 System.out.println("CHEATER");
             } else {
                 System.out.println(dinner.toString());
             }
         }
-        in.close();
     }
 }
